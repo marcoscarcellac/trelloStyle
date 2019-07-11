@@ -1,0 +1,35 @@
+{
+    "mP6OY73O": {
+        "colors": {
+            "Meeting": "66, 134, 244, 0.8",
+            "Backlog": "242, 217, 31, 0.8",
+            "To Do": "71, 188, 95, 0.8",
+            "Monitoring": "214, 80, 70, 0.8",
+            "Waiting For": "249, 247, 247, 0.8",
+            "Done": "#283140"
+        },
+        "title": "IT Torino"
+    },
+    "Cj5wHVCl": {
+        "colors": {
+            "Proposte (To Do)": "242, 217, 31, 0.8",
+            "In progress": "66, 134, 244, 0.8",
+            "Done": "71, 188, 95, 0.8",
+            "Waiting For": "249, 247, 247, 0.8",
+            "Trash": "#283140"
+        },
+        "title": "Servant Leader Board"
+    },
+    "QtvQm3B2": {
+        "colors": {
+            "Backlog": "71, 188, 95, 0.8",
+            "Definizione di business": "214, 80, 70, 0.8",
+            "Design": "249, 247, 247, 0.8",
+            "Valutazione IT (fattibilità)": "66, 134, 244, 0.8",
+            "Stima HL IT": "242, 217, 31, 0.8",
+            "Done": "#283140"
+        },
+        "title": "Feasibility Nuovo Sistema Cebi",
+        "background": "https://images.unsplash.com/photo-1494278426567-8899eec9b8c6"
+    }
+}
