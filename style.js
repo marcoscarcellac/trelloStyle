@@ -7,46 +7,33 @@
 // @match        https://trello.com/*
 // @grant        none
 // ==/UserScript==
-
-var colorsList = {
-    'mP6OY73O': {
-        colors: {
-            'Meeting': '66, 134, 244, 0.8',
-            'Backlog': '242, 217, 31, 0.8',
-            'To Do': '71, 188, 95, 0.8',
-            'Monitoring': '214, 80, 70, 0.8',
-            'Waiting For': '249, 247, 247, 0.8',
-            'Done': '#283140'
-        },
-        title: 'IT Torino'
-    },
-    Cj5wHVCl: {
-        colors: {
-            'Proposte (To Do)': '242, 217, 31, 0.8',
-            'In progress': '66, 134, 244, 0.8',
-            'Done': '71, 188, 95, 0.8',
-            'Waiting For': '249, 247, 247, 0.8',
-            'Trash': '#283140'
-        },
-        title: 'Servant Leader Board'
-    },
-    QtvQm3B2: {
-        colors: {
-            'Backlog': '71, 188, 95, 0.8',
-            'Definizione di business': '214, 80, 70, 0.8',
-            'Design': '249, 247, 247, 0.8',
-            'Valutazione IT (fattibilità)': '66, 134, 244, 0.8',
-            'Stima HL IT': '242, 217, 31, 0.8',
-            'Done': '#283140'
-        },
-        title: 'Feasibility Nuovo Sistema Cebi',
-        background: 'https://images.unsplash.com/photo-1494278426567-8899eec9b8c6'
-    }
-};
+var colorsList;
 var trInterval;
+var colorsUrl = 'https://raw.githubusercontent.com/marcoscarcellac/trelloStyle/master/colorList.json';
+
+(function() {
+    'use strict';
+
+    fetch(colorsUrl).then((response) => {
+        response.json().then((data) => {
+            colorsList = data;
+        });
+    })
+    .catch((err) => { l(err) });
+
+    let bLinks = document.querySelector('.Hfs3HipWTh7Sr-');
+    bLinks.addEventListener('click', function(){
+        trInterval = setInterval(colorizeTrello, 1000);
+    })
+    trInterval = setInterval(colorizeTrello, 1000);
+
+
+})();
+
 function l(log){
     console.dir(log);
 }
+
 function colorizeTrello(){
         var listTitle = document.querySelectorAll(".js-list-name-input");
         let boardName = window.location.href.split('/')[window.location.href.split('/').length - 2];
@@ -88,18 +75,3 @@ function colorizeTrello(){
             clearInterval(trInterval);
         }
 }
-(function() {
-    'use strict';
-    let bLinks = document.querySelector('.Hfs3HipWTh7Sr-');
-    bLinks.addEventListener('click', function(){
-        trInterval = setInterval(colorizeTrello, 1000);
-    })
-    trInterval = setInterval(colorizeTrello, 1000);
-
-    /*var xhReq = new XMLHttpRequest();
-    xhReq.open("GET", "http://51.68.199.160/api/trelloColors.json", false);
-    xhReq.send(null);
-    var serverResponse = xhReq.responseText;
-    l(serverResponse);*/
-
-})();
